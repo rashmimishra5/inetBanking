@@ -15,6 +15,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.inetBanking.PageObject.LoginPage;
 import com.inetBanking.Utilities.XLUtils;
 
 public class TC_lognDDF_002 extends BaseClass
@@ -24,42 +25,19 @@ public class TC_lognDDF_002 extends BaseClass
 public void loginDDT(String username,String password) throws InterruptedException
 	
 	{
-		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 		System.out.println("HI IN LOGIN METHOD");
-		com.inetBanking.PageObject.LoginPage lp=new com.inetBanking.PageObject.LoginPage(driver);
+		LoginPage lp=new LoginPage(driver);
 		lp.setUserName(username);
 		lp.setUserPassword(password);
-		blockingPopupsAndOtherWindow();
+		//blockingPopupsAndOtherWindow();
 		lp.clickSubmit();
-		
-		WebElement togger=driver.findElement(By.xpath("//a[@id='gdpr-toggle']"));
-		
-		Actions act=new Actions(driver);
-		act.moveToElement(togger).click().build().perform();
-  		driver.switchTo().frame(1);
-		//Thread.sleep(5000);
-		Actions act1=new Actions(driver);
-		
-		WebElement btnsave=driver.findElement(By.xpath("//button[@id='save']"));
-		act1.moveToElement(btnsave).click().build().perform();
-		//Thread.sleep(5000);
-		driver.switchTo().defaultContent();
-		//lp.clickSubmit();
-		Actions act2=new Actions(driver);
-		act2.moveToElement(driver.findElement(By.xpath("//input[@name='btnLogin']"))).click().build().perform();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		/*Actions act2=new Actions(driver);
-		WebElement button_ele=driver.findElement(By.xpath("//input[@name='btnLogin']"));
-		
-		wait.until(ExpectedConditions.elementToBeClickable(button_ele)).click();
-		act2.moveToElement(button_ele).click().build().perform();*/
 		Thread.sleep(3000);
 	
 		if(isAlertPresent()==true)  //tc fail
 		{
 			driver.switchTo().alert().accept();
 			driver.switchTo().defaultContent();
-			Assert.assertTrue(false);
+			Assert.assertTrue(false,"fail");
 		}
 		else   ////tc passed
 		{
@@ -97,8 +75,10 @@ public void loginDDT(String username,String password) throws InterruptedExceptio
 	
 	public Boolean isAlertPresent()
 	{
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30) /*timeout in seconds*/);
 		try
 		{
+			wait.until(ExpectedConditions.alertIsPresent());
 			driver.switchTo().alert().accept();
 			return true;
 		}

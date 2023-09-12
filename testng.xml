@@ -7,12 +7,20 @@
   <test name="inetBanking">
   <parameter name="Browser" value="chrome"></parameter>
     <classes>
-     <!-- <class name="com.inetBanking.TestCases.LoginPage"/>
-      <class name="com.inetBanking.TestCases.BaseClass"/>-->
-     <!--  <class name="com.inetBanking.TestCases.TC_LoginTest_001"/> -->
-     <class name="com.inetBanking.TestCases.TC_lognDDF_002"/> 
+     <class name="com.inetBanking.TestCases.TC_LoginTest_001"/> 
+     <class name="com.inetBanking.TestCases.TC_AddCustomer_003"/>  
       
      
     </classes>
   </test> <!-- Test -->
+  
+ <!-- <test name="inetBankingloginDDT">
+  <parameter name="Browser" value="chrome"></parameter>
+    <classes>
+     
+     <class name="com.inetBanking.TestCases.TC_lognDDF_002"/>  
+      
+     
+    </classes>
+  </test>  --><!-- Test -->  
 </suite> <!-- Suite -->

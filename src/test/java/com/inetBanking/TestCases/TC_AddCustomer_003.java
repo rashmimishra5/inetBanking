@@ -9,15 +9,16 @@ import com.inetBanking.PageObject.LoginPage;
 
 public class TC_AddCustomer_003 extends BaseClass
 {
-	@Test()
+	@Test(dependsOnMethods="loginTest")
 	public void addNewCustomer() throws InterruptedException
 	{
-		LoginPage lp=new LoginPage(driver);
+		blockingPopupsAndOtherWindow();
+		//LoginPage lp=new LoginPage(driver);
 		
-		lp.setUserName(rc.getUserName());
-		lp.setUserPassword(rc.getUserPassword());
-		lp.clickSubmit();
-		Thread.sleep(3000);
+		//lp.setUserName(rc.getUserName());
+		//lp.setUserPassword(rc.getUserPassword());
+		//lp.clickSubmit();
+		//Thread.sleep(3000);
 		
 		AddNewCustomer nc=new AddNewCustomer(driver);
 		nc.clickNewCustomer();
@@ -36,7 +37,7 @@ public class TC_AddCustomer_003 extends BaseClass
 		
 		Thread.sleep(5000);
 		
-		boolean b=driver.getPageSource().contains("Customer Registerd successfully");
+		boolean b=driver.getPageSource().contains("Customer Registered Successfully!!!");
 		Assert.assertTrue(b);		
 	}
 	

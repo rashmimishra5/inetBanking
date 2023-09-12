@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.inetBanking.TestCases.TC_lognDDF_002">
+      <class name="com.inetBanking.TestCases.BaseClass">
         <methods>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="loginDDT"/>
+          <include name="blockingPopupsAndOtherWindow"/>
         </methods>
-      </class> <!-- com.inetBanking.TestCases.TC_lognDDF_002 -->
+      </class> <!-- com.inetBanking.TestCases.BaseClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

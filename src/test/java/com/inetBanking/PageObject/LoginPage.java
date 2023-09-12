@@ -3,6 +3,7 @@ package com.inetBanking.PageObject;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -58,15 +59,21 @@ public class LoginPage
 		driver.switchTo().frame("gdpr-consent-manager");
 		driver.findElement(By.xpath("//span[text()='Accept All']")).click();
 		driver.switchTo().defaultContent();*/
-		Actions act=new Actions(driver);
-		act.moveToElement(btnlogin).click().build().perform();
+		//Actions act=new Actions(driver);
+		//act.moveToElement(btnlogin).click().build().perform();
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click()",btnlogin);
 		//btnlogin.click();
 	}
 	public void clickLogOut()
 	{
 		//wait.until(ExpectedConditions.elementToBeClickable(btnlogin));
-		Actions act=new Actions(driver);
-		act.moveToElement(btnlogOut).click().build().perform();
+		//Actions act=new Actions(driver);
+		//act.moveToElement(btnlogOut).click().build().perform();
 		//btnlogin.click();
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click()",btnlogOut);
 	}
 }

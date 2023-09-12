@@ -20,10 +20,9 @@ public class TC_LoginTest_001 extends BaseClass
 		lp.setUserName(rc.getUserName());
 		lp.setUserPassword(rc.getUserPassword());
 		lp.clickSubmit();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		Thread.sleep(5000);
-		String SucessMsg="Manager";
-		String Actual_msg=driver.findElement(By.xpath("//ul[@class='menusubnav']/child::li[@class='orange']/a")).getText();
+		String SucessMsg="Welcome To Manager's Page of Guru99 Bank";
+		String Actual_msg=driver.findElement(By.xpath("//marquee[@class='heading3']")).getText();
 		System.out.println(Actual_msg);
 		//marquee[@class='heading3']
 		//Assert.assertEquals(driver.getTitle().contains("Guru1") ,"Guru");
